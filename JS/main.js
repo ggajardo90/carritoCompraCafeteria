@@ -49,6 +49,7 @@ let productosCarrito = [];
 // PASO 2 FUNCIONES PARA LOS EVENTLISTENER
 cargarEventListeners();
 function cargarEventListeners() {
+    
     //cuando agregas un producto precionando ADD TO CART
     listaProductos.addEventListener('click', agregarProducto);
 
@@ -56,6 +57,12 @@ function cargarEventListeners() {
     //ELIMINA PRTODUCTOS DEL CARRITO 
 
     carrito.addEventListener('click', eliminarCurso);
+
+    vaciarCarritoBtn.addEventListener('click', () =>{
+        productosCarrito = [] //reseteamos el arreglo
+
+        limpiarHtml();//Elimina todo el html
+    } );
 }
 
 
@@ -91,7 +98,7 @@ function eliminarCurso(e){
 //PASO 4 lee el contenido del html al que le dimos click y extrae la info del producto
 
 function leerDatosProducto(producto) {
-    // console.log(producto);
+
     // CREAR OBJETO CON EL CONTENIDO DEL PRODUCTO ACTUAL
 
     const infoProducto = {
@@ -123,10 +130,6 @@ function leerDatosProducto(producto) {
     productosCarrito = [...productosCarrito, infoProducto];
     }
 
-
-    
-
-    console.log(productosCarrito);
     carritoHTML();
 }
 
